@@ -1535,7 +1535,7 @@ print_group_open(
 }
 
 static void
-print_one_option(gpFile fp, stp_vars_t *v, const stp_string_list_t *po,
+print_one_option(const char *long_name, gpFile fp, stp_vars_t *v, const stp_string_list_t *po,
 		 ppd_type_t ppd_type, const stp_parameter_t *lparam,
 		 const stp_parameter_t *desc)
 {
@@ -1597,8 +1597,12 @@ print_one_option(gpFile fp, stp_vars_t *v, const stp_string_list_t *po,
 	       desc->deflt.boolean ? 1.0 : 0.0);
       if (desc->is_mandatory)
 	{
-	  gpprintf(fp, "*DefaultStp%s: %s\n", desc->name,
-		   desc->deflt.boolean ? "True" : "False");
+          if (strncmp(long_name, "Canon SELPHY", 12))
+		gpprintf(fp, "*DefaultStp%s: %s\n", desc->name,
+			"True");
+          else
+		gpprintf(fp, "*DefaultStp%s: %s\n", desc->name,
+			desc->deflt.boolean ? "True" : "False");
 	  gpprintf(fp, "*StpDefaultStp%s: %s\n", desc->name,
 		   desc->deflt.boolean ? "True" : "False");
 	  if (skip_color)
@@ -2371,7 +2375,10 @@ write_ppd(
 	   _("Shrink Page If Necessary to Fit Borders"));
   gpputs(fp, "*OPOptionHints StpiShrinkOutput: \"radiobuttons\"\n");
   gpputs(fp, "*OrderDependency: 10 AnySetup *StpiShrinkOutput\n");
-  gpputs(fp, "*DefaultStpiShrinkOutput: Shrink\n");
+  if (strncmp(long_name, "Canon SELPHY", 12))
+  	gpputs(fp, "*DefaultStpiShrinkOutput: Shrink\n");
+  else
+  	gpputs(fp, "*DefaultStpiShrinkOutput: Expand\n");
   gpputs(fp, "*StpDefaultStpiShrinkOutput: Shrink\n");
   gpprintf(fp, "*StpiShrinkOutput %s/%s: \"\"\n", "Shrink", _("Shrink (print the whole page)"));
   gpprintf(fp, "*StpiShrinkOutput %s/%s: \"\"\n", "Crop", _("Crop (preserve dimensions)"));
@@ -2406,7 +2413,7 @@ write_ppd(
 		      print_group_open(fp, j, k, language, po);
 		      printed_open_group = 1;
 		    }
-		  print_one_option(fp, v, po, ppd_type, lparam, &desc);
+		  print_one_option(long_name, fp, v, po, ppd_type, lparam, &desc);
 		}
 	      stp_parameter_description_destroy(&desc);
 	    }

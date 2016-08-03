@@ -2834,6 +2834,9 @@
       <parameters name="nativecopies">
         <parameter type="boolean" name="NativeCopies">1</parameter>
       </parameters>      
+      <parameters name="contrast_1">
+        <parameter type="float" name="Contrast">1.3</parameter>
+      </parameters>
       <printer translate="name" name="Olympus P-10" driver="olympus-p10" manufacturer="Olympus" model="2" foomaticid="Olympus-P-10" />
       <printer translate="name" name="Olympus P-11" driver="olympus-p11" manufacturer="Olympus" model="2" foomaticid="Olympus-P-11" />
       <printer translate="name" name="Olympus P-200" driver="olympus-p200" manufacturer="Olympus" model="4" foomaticid="Olympus-P-200" />
@@ -2870,7 +2873,8 @@
       <printer translate="name" name="Canon SELPHY CP810" deviceid="MFG:Canon;CMD:Raster3;MDL:CP810;CLS:PRINTER;DES:Canon CP810;VER:3.05;" driver="canon-cp810" manufacturer="Canon" model="1009" foomaticid="Canon-SELPHY-CP810" parameters="nativecopies" />
       <printer translate="name" name="Canon SELPHY CP820" driver="canon-cp820" manufacturer="Canon" model="1011" foomaticid="Canon-SELPHY-CP820" />
       <printer translate="name" name="Canon SELPHY CP900" deviceid="MFG:Canon;CMD:Raster3;MDL:CP900;CLS:PRINTER;DES:Canon CP900;VER:5.77;" driver="canon-cp900" manufacturer="Canon" model="1010" foomaticid="Canon-SELPHY-CP900" parameters="nativecopies" />
-      <printer translate="name" name="Canon SELPHY CP910" deviceid="MFG:Canon;CMD:Raster3;MDL:CP910;CLS:PRINTER;DES:Canon CP910;VER:1.00;CID:CA_YCC_ICP;" driver="canon-cp910" manufacturer="Canon" model="1011" foomaticid="Canon-SELPHY-CP910" />
+      <printer translate="name" name="Canon SELPHY CP910" deviceid="MFG:Canon;CMD:Raster3;MDL:CP910;CLS:PRINTER;DES:Canon CP910;VER:1.00;CID:CA_YCC_ICP;" driver="canon-cp910" manufacturer="Canon" model="1011" parameters="contrast_1" foomaticid="Canon-SELPHY-CP910" />
+      <printer translate="name" name="Canon SELPHY CP1200" deviceid="MFG:Canon;CMD:Raster3;MDL:CP1200;CLS:PRINTER;DES:Canon CP1200;VER:1.00;CID:CA_YCC_ICP;" driver="canon-cp1200" manufacturer="Canon" model="1011" parameters="contrast_1" foomaticid="Canon-SELPHY-CP1200" />
       <printer translate="name" name="Canon SELPHY ES1" deviceid="MFG:Canon;CMD:Raster3;MDL:ES1;CLS:PRINTER;DES:Canon SELPHY ES1;VER:1.00;" driver="canon-es1" manufacturer="Canon" model="1003" foomaticid="Canon-SELPHY-ES1" parameters="nativecopies" />
       <printer translate="name" name="Canon SELPHY ES2" deviceid="MFG:Canon;CMD:Raster3;MDL:ES2;CLS:PRINTER;DES:Canon SELPHY ES2;VER:1.00;" driver="canon-es2" manufacturer="Canon" model="1005" foomaticid="Canon-SELPHY-ES2" parameters="nativecopies" />
       <printer translate="name" name="Canon SELPHY ES3" deviceid="MFG:Canon;CMD:Raster3;MDL:ES3;CLS:PRINTER;DES:Canon SELPHY ES3;VER:1.00;" driver="canon-es3" manufacturer="Canon" model="1006" foomaticid="Canon-SELPHY-ES3" parameters="nativecopies" />
